@@ -1,0 +1,3 @@
+Bundle "rking/ag.vim"
+Bundle "vim-scripts/IndexedSearch"
+Bundle "skwp/vim-easymotion"

@@ -1,0 +1,12 @@
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-cucumber'
+Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'thoughtbot/vim-rspec'
+Bundle "pangloss/vim-javascript"
+Bundle "itspriddle/vim-jquery.git"
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-bundler'
+Bundle "ecomba/vim-ruby-refactoring"
+Bundle "tpope/vim-rake.git"
+Bundle "vim-ruby/vim-ruby.git"

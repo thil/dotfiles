@@ -1,0 +1,11 @@
+Bundle 'danro/rename.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/ctags.vim'
+Bundle 'vim-scripts/AutoTag.git'
+Bundle 'vim-scripts/tComment'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'godlygeek/tabular'
+Bundle "skwp/YankRing.vim"
