@@ -58,11 +58,12 @@ cask install google-chrome || true
 cask install iterm2        || true
 cask install dropbox       || true
 cask install alfred        || true
-cask install sourcetree    || true
 cask install sublime-text  || true
 cask install virtualbox    || true
 cask install vagrant       || true
 cask install dash          || true
+cask install flux          || true
+cask install onepassword   || true
 
 # Remove outdated versions
 cleanup
