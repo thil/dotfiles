@@ -31,11 +31,11 @@ syntax on
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/bundles
 
-if filereadable(expand("~/.vim/bundle"))
+if filereadable(expand("~/.vim/bundle.vim"))
   source ~/.vim/bundle.vim
 endif
 
-if filereadable(expand("~/.vim/setting"))
+if filereadable(expand("~/.vim/setting.vim"))
   source ~/.vim/setting.vim
 endif
 " ================ Turn Off Swap Files ==============
