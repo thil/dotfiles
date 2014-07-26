@@ -177,6 +177,11 @@ def install_prezto
       run %{ chsh -s /bin/zsh }
     end
   end
+
+  run %{
+    rm .zshrc
+    ln -nfs ".zsh/.zshrc" ".zshrc"
+  }
 end
 
 def file_operation(files, method = :symlink)
@@ -199,6 +204,7 @@ def file_operation(files, method = :symlink)
     else
       run %{ cp -f "#{source}" "#{target}" }
     end
+
     puts "=========================================================="
     puts
   end

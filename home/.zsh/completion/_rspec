@@ -1,1 +1,3 @@
-/Users/thil/dotfiles/zsh/completion/_rspec
+#compdef rspec
+
+compadd -P spec/ `ls spec/**/*_spec.rb | sed -E "s/spec\///g"`
