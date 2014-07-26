@@ -177,11 +177,6 @@ def install_prezto
       run %{ chsh -s /bin/zsh }
     end
   end
-
-  run %{
-    rm .zshrc
-    ln -nfs ".zsh/.zshrc" ".zshrc"
-  }
 end
 
 def file_operation(files, method = :symlink)
@@ -194,19 +189,21 @@ def file_operation(files, method = :symlink)
     puts "Source: #{source}"
     puts "Target: #{target}"
 
-    if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
-      puts "[Overwriting] #{target}...leaving original at #{target}.backup..."
-      run %{ mv "$HOME/.#{file}" "$HOME/.#{file}.backup" }
-    end
+    if file != 'zshrc'
+      if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
+        puts "[Overwriting] #{target}...leaving original at #{target}.backup..."
+        run %{ mv "$HOME/.#{file}" "$HOME/.#{file}.backup" }
+      end
 
-    if method == :symlink
-      run %{ ln -nfs "#{source}" "#{target}" }
-    else
-      run %{ cp -f "#{source}" "#{target}" }
-    end
+      if method == :symlink
+        run %{ ln -nfs "#{source}" "#{target}" }
+      else
+        run %{ cp -f "#{source}" "#{target}" }
+      end
 
-    puts "=========================================================="
-    puts
+      puts "=========================================================="
+      puts
+    end
   end
 end
 
