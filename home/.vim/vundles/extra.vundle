@@ -1,4 +1,3 @@
-Bundle 'danro/rename.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
@@ -9,3 +8,4 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'godlygeek/tabular'
 Bundle "skwp/YankRing.vim"
+Bundle 'godlygeek/csapprox'

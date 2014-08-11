@@ -16,6 +16,11 @@ task :install_prezto do
   install_prezto
 end
 
+desc "Install iterm theme"
+task :install_iterm_theme do
+  install_term_theme
+end
+
 task :submodule_init do
   unless ENV["SKIP_SUBMODULES"]
     run %{ git submodule update --init --recursive }
@@ -111,7 +116,7 @@ def install_term_theme
   # Ask the user which theme he wants to install
   message = "Which theme would you like to apply to your iTerm2 profile?"
   color_scheme = ask message, iTerm_available_themes
-  color_scheme_file = File.join('iTerm2', "#{color_scheme}.itermcolors")
+  color_scheme_file = File.join('iTerm', "#{color_scheme}.itermcolors")
 
   # Ask the user on which profile he wants to install the theme
   profiles = iTerm_profile_list

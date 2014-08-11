@@ -40,9 +40,10 @@ install ag        || true
 install fasd      || true
 install reattach-to-user-namespace || true
 
+
 ## Languages
-install rbenv            || true
-install ruby-build       || true
+install chruby           || true
+install ruby-install     || true
 
 ## DevOps
 install docker      || true
@@ -64,6 +65,8 @@ cask install vagrant       || true
 cask install dash          || true
 cask install flux          || true
 cask install onepassword   || true
+cask install p4merge       || true
+cask install seil          || true
 
 # Remove outdated versions
 cleanup

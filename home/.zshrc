@@ -41,12 +41,10 @@ setopt extendedglob
 # Allow [ or ] whereever you want
 unsetopt nomatch
  
-# Start rbenv
+# Start chruby
 
-if which rbenv &>/dev/null ; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init - --no-rehash)"
-fi
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
  
 # Add homebrew to the completion path
 fpath=("/usr/local/bin/" $fpath)
