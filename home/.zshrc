@@ -45,6 +45,8 @@ unsetopt nomatch
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+
+chruby ruby-2.1.1
  
 # Add homebrew to the completion path
 fpath=("/usr/local/bin/" $fpath)
@@ -127,3 +129,14 @@ bindkey -M vicmd "q" push-line
 bindkey -M viins ' ' magic-space
 
 export TERM=xterm-256color
+
+HISTFILE=$HOME/.zhistory       # enable history saving on shell exit
+setopt APPEND_HISTORY          # append rather than overwrite history file.
+HISTSIZE=1200                  # lines of history to maintain memory
+SAVEHIST=1000                  # lines of history to maintain in history file.
+setopt HIST_EXPIRE_DUPS_FIRST  # allow dups, but expire old ones when I hit HISTSIZE
+setopt EXTENDED_HISTORY        # save timestamp and runtime information
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"

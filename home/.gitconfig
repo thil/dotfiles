@@ -18,9 +18,9 @@
 [branch]
   autosetupmerge = true
 [push]
-  # 'git push' will push the current branch to its tracking branch
+  # 'git push' will push the current branch to its upstream branch with the same name
   # the usual default is to push all branches
-  default = tracking
+  default = simple
 [core]
   autocrlf = false
   editor = vim
@@ -32,6 +32,9 @@
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
   algorithm = patience
+  tool = icdiff
+[difftool "icdiff"]
+  cmd = "/usr/local/Cellar/icdiff/1.5.3/bin/git-icdiff"
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
@@ -50,8 +53,10 @@
   summary = true
   verbosity = 1
   tool = p4merge
-[push]
-  default = current
 [user]
   name = Thil Bandara
   email = tbandara@gmail.com
+[alias]
+  ; Explicit is better than implicit.  If we want to merge
+  ; we should do so ourselves.
+  pull = pull --ff-only

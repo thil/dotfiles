@@ -24,3 +24,5 @@ function! AlternateForCurrentFile()
   return new_file
 endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
+map <leader>gem :e Gemfile<cr>
+map <leader>gr :topleft :split config/routes.rb<cr>

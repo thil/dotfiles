@@ -67,6 +67,7 @@ cask install flux          || true
 cask install onepassword   || true
 cask install p4merge       || true
 cask install seil          || true
+cask install spectacle     || true
 
 # Remove outdated versions
 cleanup
