@@ -1,3 +1,3 @@
-Bundle "itchyny/lightline.vim"
-Bundle "morhetz/gruvbox"
-Bundle "elzr/vim-json"
+Plug "itchyny/lightline.vim"
+Plug "morhetz/gruvbox"
+Plug "elzr/vim-json"
