@@ -3,7 +3,7 @@ require 'fileutils'
 
 task :install => [:submodule_init, :submodules] do
   install_homebrew if RUBY_PLATFORM.downcase.include?("darwin")
-  Rake::Task["install_vundle"].execute
+  Rake::Task["install_plug"].execute
   Rake::Task["install_prezto"].execute
 
   install_fonts if RUBY_PLATFORM.downcase.include?("darwin")
@@ -42,23 +42,19 @@ task :submodules do
   end
 end
 
-desc "Runs Vundle installer in a clean vim environment"
-task :install_vundle do
+desc "Runs Plug installer in a clean vim environment"
+task :install_plug do
   puts "======================================================"
-  puts "Installing and updating vundles."
-  puts "The installer will now proceed to run BundleInstall."
+  puts "Installing and updating plugs."
+  puts "The installer will now proceed to run PlugInstall."
   puts "======================================================"
 
   puts ""
 
-  vundle_path = File.join('.vim','bundle', 'vundle')
-  unless File.exists?(vundle_path)
-    run %{
-      cd $HOME
-      git clone https://github.com/gmarik/vundle.git #{vundle_path}
-    }
-  end
-  system "vim --noplugin -u .vim/bundle.vim -N \"+set hidden\" \"+syntax on\" +BundleClean +BundleInstall +qall"
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    
+  system "vim --noplugin -u .vim/bundle.vim -N \"+set hidden\" \"+syntax on\" +PlugClean +PlugInstall +qall"
 end
 
 task :default => 'install'
