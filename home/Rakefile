@@ -5,6 +5,7 @@ task :install => [:submodule_init, :submodules] do
   install_homebrew if RUBY_PLATFORM.downcase.include?("darwin")
   Rake::Task["install_plug"].execute
   Rake::Task["install_prezto"].execute
+  Rake::Task["install_powerline"].execute
 
   install_fonts if RUBY_PLATFORM.downcase.include?("darwin")
   install_term_theme if RUBY_PLATFORM.downcase.include?("darwin")
@@ -52,8 +53,26 @@ task :install_plug do
   puts ""
 
   run %{ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim }
-    
   system "vim --noplugin -u .vim/bundle.vim -N \"+set hidden\" \"+syntax on\" +PlugClean +PlugInstall +qall"
+end
+
+desc "Install powerline"
+task :install_powerline do
+  if !File.exists?("./.zsh/powerline-shell/install.py")
+    run %{
+      rm -Rf ./.zsh/powerline-shell
+      git clone https://github.com/milkbikis/powerline-shell ./.zsh/powerline-shell
+      cp ./.zsh/powerline-shell/config.py.dist ./.zsh/powerline-shell/config.py
+      cd ./.zsh/powerline-shell && ./install.py
+    }
+  end
+
+  if !File.exists?("./.zsh/powerline-fonts/install.sh")
+    run %{
+      git clone https://github.com/powerline/fonts ./.zsh/powerline-fonts
+      cd ./.zsh/powerline-fonts && ./install.sh
+    }
+  end
 end
 
 task :default => 'install'
