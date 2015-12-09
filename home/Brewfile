@@ -17,25 +17,18 @@ install zsh   || true
 
 ## Git
 install git   || true
-install hub   || true
 install tig   || true
 
 ## Utils
-install autoconf  || true
-install automake  || true
 install rmtrash   || true
 install coreutils || true
-install rmtrash   || true
 install wget      || true
 install curl      || true
-install proctools || true
 install tree      || true
 install openssl   || true
 install libyaml   || true
 install readline  || true
 install tmux      || true
-install markdown  || true
-install nkf       || true
 install ag        || true
 install fasd      || true
 install reattach-to-user-namespace || true
@@ -47,8 +40,7 @@ install ruby-install     || true
 
 ## DevOps
 install docker      || true
-install boot2docker || true
-install packer      || true
+install docker-machine || true
 
 ## Image
 install imagemagick || true
