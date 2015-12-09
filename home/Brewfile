@@ -1,65 +1,55 @@
-# Make sure using latest Homebrew
-update || true
-
-# Update already-installed formula
-upgrade || true
+cask_args appdir: '/Applications'
 
 # Add Repository
-tap homebrew/versions    || true
-tap phinze/homebrew-cask || true
-tap homebrew/binary      || true
-tap thoughtbot/formulae  || true
+tap 'homebrew/versions'
+tap 'phinze/homebrew-cask'
+tap 'homebrew/binary'
+tap 'thoughtbot/formulae'
 
 # Packages
 
 ## Shell
-install zsh   || true
+brew 'zsh'
 
 ## Git
-install git   || true
-install tig   || true
+brew 'git'
+brew 'tig'
 
 ## Utils
-install rmtrash   || true
-install coreutils || true
-install wget      || true
-install curl      || true
-install tree      || true
-install openssl   || true
-install libyaml   || true
-install readline  || true
-install tmux      || true
-install ag        || true
-install fasd      || true
-install reattach-to-user-namespace || true
+brew 'rmtrash'
+brew 'coreutils'
+brew 'wget'
+brew 'curl'
+brew 'tree'
+brew 'openssl'
+brew 'libyaml'
+brew 'readline'
+brew 'tmux'
+brew 'ag'
+brew 'fasd'
+brew 'reattach-to-user-namespace'
 
 
 ## Languages
-install chruby           || true
-install ruby-install     || true
+brew 'chruby'
+brew 'ruby-install'
 
 ## DevOps
-install docker      || true
-install docker-machine || true
-
-## Image
-install imagemagick || true
+brew 'docker'
+brew 'docker-machine'
 
 # Casks
-install brew-cask
-cask install google-chrome || true
-cask install iterm2        || true
-cask install dropbox       || true
-cask install alfred        || true
-cask install sublime-text  || true
-cask install virtualbox    || true
-cask install vagrant       || true
-cask install dash          || true
-cask install flux          || true
-cask install onepassword   || true
-cask install p4merge       || true
-cask install seil          || true
-cask install spectacle     || true
-
-# Remove outdated versions
-cleanup
+brew 'brew-cask'
+cask 'google-chrome'
+cask 'iterm2'
+cask 'dropbox'
+cask 'alfred'
+cask 'sublime-text'
+cask 'virtualbox'
+cask 'vagrant'
+cask 'dash'
+cask 'flux'
+cask 'onepassword'
+cask 'p4merge'
+cask 'seil'
+cask 'spectacle'
