@@ -1,4 +1,4 @@
-filetype off
+call plug#begin('~/.vim/plugged')
 
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/vundles/ "Submodules
