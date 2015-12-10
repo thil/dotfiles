@@ -15,6 +15,7 @@
     ~/.zpreztorc:  home/.zpreztorc
     ~/.zsh:        home/.zsh
     ~/.zshrc:      home/.zshrc
+    ~/Vagrantfile: home/Vagrantfile
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
