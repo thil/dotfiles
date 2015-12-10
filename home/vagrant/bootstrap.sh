@@ -8,10 +8,12 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sour
 wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 
 apt-get update
-apt-get install -y git zsh linux-image-extra-$(uname -r) docker-engine elixir
+apt-get install -y git zsh linux-image-extra-$(uname -r) docker-engine elixir nodejs
+
+#Node
+ln -s /usr/bin/nodejs /usr/bin/node
 
 #Ruby
-
 wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
 tar -xzvf chruby-0.3.9.tar.gz
 cd chruby-0.3.9/; sudo make install; cd ..; rm -rf chruby-0.3.9
