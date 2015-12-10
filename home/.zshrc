@@ -46,7 +46,7 @@ unsetopt nomatch
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
-chruby ruby-2.1.1
+chruby 2.1
  
 # Add homebrew to the completion path
 fpath=("/usr/local/bin/" $fpath)
