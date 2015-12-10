@@ -29,7 +29,6 @@ brew 'ag'
 brew 'fasd'
 brew 'reattach-to-user-namespace'
 
-
 ## Languages
 brew 'chruby'
 brew 'ruby-install'
@@ -52,3 +51,4 @@ cask 'flux'
 cask '1password'
 cask 'p4merge'
 cask 'spectacle'
+cask 'slack'
