@@ -2,7 +2,6 @@ cask_args appdir: '/Applications'
 
 # Add Repository
 tap 'homebrew/versions'
-tap 'phinze/homebrew-cask'
 tap 'homebrew/binary'
 tap 'thoughtbot/formulae'
 
@@ -39,7 +38,6 @@ brew 'docker'
 brew 'docker-machine'
 
 # Casks
-brew 'brew-cask'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'dropbox'
