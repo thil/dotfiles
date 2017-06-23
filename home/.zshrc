@@ -140,3 +140,5 @@ setopt EXTENDED_HISTORY        # save timestamp and runtime information
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

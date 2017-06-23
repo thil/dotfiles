@@ -1,3 +1,5 @@
 Plug 'rking/ag.vim'
 Plug 'vim-scripts/IndexedSearch'
 Plug 'skwp/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
