@@ -127,6 +127,9 @@ def install_term_theme
   run %{ /usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Gruvbox Dark' dict" ~/Library/Preferences/com.googlecode.iterm2.plist }
   run %{ /usr/libexec/PlistBuddy -c "Merge 'iTerm/gruvbox-dark.itermcolors' :'Custom Color Presets':'Gruvbox Dark'" ~/Library/Preferences/com.googlecode.iterm2.plist }
 
+  run %{ /usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Material Dark' dict" ~/Library/Preferences/com.googlecode.iterm2.plist }
+  run %{ /usr/libexec/PlistBuddy -c "Merge 'iTerm/material-dark.itermcolors' :'Custom Color Presets':'Material Dark'" ~/Library/Preferences/com.googlecode.iterm2.plist }
+
   # Ask the user which theme he wants to install
   message = "Which theme would you like to apply to your iTerm2 profile?"
   color_scheme = ask message, iTerm_available_themes
