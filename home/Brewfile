@@ -33,10 +33,6 @@ brew 'reattach-to-user-namespace'
 brew 'chruby'
 brew 'ruby-install'
 
-## DevOps
-brew 'docker'
-brew 'docker-machine'
-
 # Casks
 cask 'google-chrome'
 cask 'iterm2'
