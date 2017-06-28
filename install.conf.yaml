@@ -9,6 +9,7 @@
     ~/.gitmessage: home/.gitmessage
     ~/.pryrc:      home/.pryrc
     ~/.psqlrc:     home/.psqlrc
+    ~/.irbrc:      home/.irbrc
     ~/.rspec:      home/.rspec
     ~/.vim:        home/.vim
     ~/.vimrc:      home/.vimrc
