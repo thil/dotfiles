@@ -13,6 +13,7 @@
     ~/.rspec:      home/.rspec
     ~/.vim:        home/.vim
     ~/.vimrc:      home/.vimrc
+    ~/.tigrc:      home/.tigrc
     ~/.zpreztorc:  home/.zpreztorc
     ~/.zsh:        home/.zsh
     ~/.zshrc:      home/.zshrc
