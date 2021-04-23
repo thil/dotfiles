@@ -1,2 +1,0 @@
-alias docker-clean="docker ps -a | awk '{print $1}' | xargs docker rm"
-alias docker-clean-images="docker images | awk '{print $3}' | xargs docker rmi"

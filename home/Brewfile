@@ -1,33 +1,28 @@
 cask_args appdir: '/Applications'
 
 # Add Repository
-tap 'homebrew/versions'
-tap 'homebrew/binary'
 tap 'thoughtbot/formulae'
 
 # Packages
 
 ## Shell
-brew 'zsh'
+brew 'fish'
 
 ## Git
 brew 'git'
 brew 'tig'
 
 ## Utils
-brew 'rmtrash'
-brew 'coreutils'
 brew 'wget'
 brew 'curl'
 brew 'tree'
 brew 'openssl'
 brew 'libyaml'
-brew 'readline'
-brew 'tmux'
-brew 'ag'
-brew 'fasd'
 brew 'fzf'
-brew 'reattach-to-user-namespace'
+brew 'fd'
+brew 'grc'
+brew 'bat'
+brew 'z'
 
 ## Languages
 brew 'chruby'
@@ -36,10 +31,4 @@ brew 'ruby-install'
 # Casks
 cask 'google-chrome'
 cask 'iterm2'
-cask 'dropbox'
-cask 'alfred'
-cask 'brackets'
-cask 'dash'
-cask 'flux'
-cask 'p4merge'
-cask 'spectacle'
+cask 'clipy'

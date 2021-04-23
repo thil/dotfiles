@@ -4,24 +4,10 @@ require 'fileutils'
 task :install => [:submodule_init, :submodules] do
   install_homebrew if RUBY_PLATFORM.downcase.include?("darwin")
   Rake::Task["install_plug"].execute
-  Rake::Task["install_prezto"].execute
-  Rake::Task["install_powerline"].execute
+  # Rake::Task["install_fisher"].execute
+  Rake::Task["install_fisher_plugins"].execute
 
   run %{/usr/local/opt/fzf/install}
-
-  install_fonts if RUBY_PLATFORM.downcase.include?("darwin")
-  install_term_theme if RUBY_PLATFORM.downcase.include?("darwin")
-
-  run_bundle_config
-end
-
-task :install_prezto do
-  install_prezto
-end
-
-desc "Install iterm theme"
-task :install_iterm_theme do
-  install_term_theme
 end
 
 task :submodule_init do
@@ -58,23 +44,24 @@ task :install_plug do
   system "vim --noplugin -u .vim/bundle.vim -N \"+set hidden\" \"+syntax on\" +PlugClean +PlugInstall +qall"
 end
 
-desc "Install powerline"
-task :install_powerline do
-  if !File.exists?("./.zsh/powerline-shell/install.py")
+task :install_fisher do
+  run %{fish; fisher}
+  unless $?.success?
     run %{
-      rm -Rf ./.zsh/powerline-shell
-      git clone https://github.com/milkbikis/powerline-shell ./.zsh/powerline-shell
-      cp ./.zsh/powerline-shell/config.py.dist ./.zsh/powerline-shell/config.py
-      cd ./.zsh/powerline-shell && ./install.py
+      fish
+      curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
     }
   end
+end
 
-  if !File.exists?("./.zsh/powerline-fonts/install.sh")
-    run %{
-      git clone https://github.com/powerline/fonts ./.zsh/powerline-fonts
-      cd ./.zsh/powerline-fonts && ./install.sh
-    }
-  end
+task :install_fisher_plugins do
+  run %{
+    fish
+    fisher install pure-fish/pure
+    fisher install jethrokuan/z
+    fisher install PatrickF1/fzf.fish
+    fisher install orefalo/grc
+  }
 end
 
 task :default => 'install'
@@ -86,16 +73,6 @@ def run(cmd)
   `#{cmd}` unless ENV['DEBUG']
 end
 
-def number_of_cores
-  if RUBY_PLATFORM.downcase.include?("darwin")
-    cores = run %{ sysctl -n hw.ncpu }
-  else
-    cores = run %{ nproc }
-  end
-  puts
-  cores.to_i
-end
-
 def install_homebrew
   run %{which brew}
   unless $?.success?
@@ -103,7 +80,7 @@ def install_homebrew
     puts "Installing Homebrew, the OSX package manager...If it's"
     puts "already installed, this will do nothing."
     puts "======================================================"
-    run %{ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"}
+    run %{/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"}
   end
 
   puts "======================================================"
@@ -114,54 +91,6 @@ def install_homebrew
   puts
 end
 
-def install_fonts
-  puts "======================================================"
-  puts "Installing patched fonts for Powerline/Lightline."
-  puts "======================================================"
-  run %{ cp -f fonts/* $HOME/Library/Fonts }
-  puts
-end
-
-def install_term_theme
-  puts "======================================================"
-  puts "Installing themes."
-  puts "======================================================"
-  run %{ /usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Gruvbox Dark' dict" ~/Library/Preferences/com.googlecode.iterm2.plist }
-  run %{ /usr/libexec/PlistBuddy -c "Merge 'iTerm/gruvbox-dark.itermcolors' :'Custom Color Presets':'Gruvbox Dark'" ~/Library/Preferences/com.googlecode.iterm2.plist }
-
-  run %{ /usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Material Dark' dict" ~/Library/Preferences/com.googlecode.iterm2.plist }
-  run %{ /usr/libexec/PlistBuddy -c "Merge 'iTerm/material-dark.itermcolors' :'Custom Color Presets':'Material Dark'" ~/Library/Preferences/com.googlecode.iterm2.plist }
-
-  # Ask the user which theme he wants to install
-  message = "Which theme would you like to apply to your iTerm2 profile?"
-  color_scheme = ask message, iTerm_available_themes
-  color_scheme_file = File.join('iTerm', "#{color_scheme}.itermcolors")
-
-  # Ask the user on which profile he wants to install the theme
-  profiles = iTerm_profile_list
-  message = "I've found #{profiles.size} #{profiles.size>1 ? 'profiles': 'profile'} on your iTerm2 configuration, which one would you like to apply the Solarized theme to?"
-  profiles << 'All'
-  selected = ask message, profiles
-
-  if selected == 'All'
-    (profiles.size-1).times { |idx| apply_theme_to_iterm_profile_idx idx, color_scheme_file }
-  else
-    apply_theme_to_iterm_profile_idx profiles.index(selected), color_scheme_file
-  end
-end
-
-def iTerm_available_themes
-   Dir['iTerm/*.itermcolors'].map { |value| File.basename(value, '.itermcolors')}
-end
-
-def iTerm_profile_list
-  profiles=Array.new
-  begin
-    profiles <<  %x{ /usr/libexec/PlistBuddy -c "Print :'New Bookmarks':#{profiles.size}:Name" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null}
-  end while $?.exitstatus==0
-  profiles.pop
-  profiles
-end
 
 def ask(message, values)
   puts message
@@ -176,31 +105,6 @@ def ask(message, values)
   end
   selection = selection.to_i-1
   values[selection]
-end
-
-def install_prezto
-  puts
-  puts "Installing Prezto (ZSH Enhancements)..."
-
-  run %{ ln -nfs ".zsh/prezto" "$HOME/.zprezto" }
-
-  # The prezto runcoms are only going to be installed if zprezto has never been installed
-  file_operation(Dir.glob('.zsh/prezto/runcoms/z*'), :copy)
-
-  if ENV["SHELL"].include? 'zsh' then
-    puts "Zsh is already configured as your shell of choice. Restart your session to load the new settings"
-  else
-    puts "Setting zsh as your default shell"
-    if File.exists?("/usr/local/bin/zsh")
-      if File.readlines("/private/etc/shells").grep("/usr/local/bin/zsh").empty?
-        puts "Adding zsh to standard shell list"
-        run %{ echo "/usr/local/bin/zsh" | sudo tee -a /private/etc/shells }
-      end
-      run %{ chsh -s /usr/local/bin/zsh }
-    else
-      run %{ chsh -s /bin/zsh }
-    end
-  end
 end
 
 def file_operation(files, method = :symlink)
@@ -231,24 +135,3 @@ def file_operation(files, method = :symlink)
   end
 end
 
-
-def apply_theme_to_iterm_profile_idx(index, color_scheme_path)
-  values = Array.new
-  16.times { |i| values << "Ansi #{i} Color" }
-  values << ['Background Color', 'Bold Color', 'Cursor Color', 'Cursor Text Color', 'Foreground Color', 'Selected Text Color', 'Selection Color']
-  values.flatten.each { |entry| run %{ /usr/libexec/PlistBuddy -c "Delete :'New Bookmarks':#{index}:'#{entry}'" ~/Library/Preferences/com.googlecode.iterm2.plist } }
-
-  run %{ /usr/libexec/PlistBuddy -c "Merge '#{color_scheme_path}' :'New Bookmarks':#{index}" ~/Library/Preferences/com.googlecode.iterm2.plist }
-  run %{ defaults read com.googlecode.iterm2 }
-end
-
-def run_bundle_config
-  return unless system("which bundle")
-
-  bundler_jobs = number_of_cores - 1
-  puts "======================================================"
-  puts "Configuring Bundlers for parallel gem installation"
-  puts "======================================================"
-  run %{ bundle config --global jobs #{bundler_jobs} }
-  puts
-end
