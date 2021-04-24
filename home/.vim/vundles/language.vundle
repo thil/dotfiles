@@ -1,12 +1,11 @@
 Plug 'tpope/vim-rails'
 Plug 'slim-template/vim-slim'
-Plug 'kchmck/vim-coffee-script'
 Plug 'thoughtbot/vim-rspec'
 Plug 'pangloss/vim-javascript'
-Plug 'itspriddle/vim-jquery'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-bundler'
-Plug 'ecomba/vim-ruby-refactoring'
 Plug 'tpope/vim-rake'
 Plug 'vim-ruby/vim-ruby'
-Plug 'elixir-lang/vim-elixir'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+

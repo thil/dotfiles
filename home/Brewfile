@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 # Add Repository
 tap 'thoughtbot/formulae'
+tap 'homebrew/cask-fonts'
 
 # Packages
 
@@ -23,12 +24,19 @@ brew 'fd'
 brew 'grc'
 brew 'bat'
 brew 'z'
+brew 'neovim'
+brew 'coreutils'
+brew 'asdf'
+brew 'exa'
+brew 'ag'
 
 ## Languages
-brew 'chruby'
-brew 'ruby-install'
+# brew 'chruby'
+# brew 'ruby-install'
 
 # Casks
 cask 'google-chrome'
 cask 'iterm2'
 cask 'clipy'
+cask 'spectacle'
+cask 'font-hack-nerd-font'

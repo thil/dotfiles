@@ -2,6 +2,7 @@ require 'rake'
 require 'fileutils'
 
 task :install => [:submodule_init, :submodules] do
+  run %{ pip3 install --user pynvim  }
   install_homebrew if RUBY_PLATFORM.downcase.include?("darwin")
   Rake::Task["install_plug"].execute
   # Rake::Task["install_fisher"].execute
