@@ -2,7 +2,7 @@ set nocompatible
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
-" The mapleader has to be set before vundle starts loading all 
+" The mapleader has to be set before vundle starts loading all
 " the plugins.
 let mapleader=","
 
@@ -73,6 +73,19 @@ set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
 autocmd BufWritePre * %s/\s\+$//e
+
+"-------------------------------------------------------------------------------
+" DevIcons
+"-------------------------------------------------------------------------------
+
+set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
+let g:webdevicons_enable_vimfiler = 1
+
+"-------------------------------------------------------------------------------
+" Color scheme
+"-------------------------------------------------------------------------------
+
+colorscheme solarized
 
 " ================ Completion =======================
 

@@ -5,7 +5,7 @@
         "revision": "a6bb452f4c03204fc49556c81e64172700a6d6d1"
       },
       "homebrew/cask-fonts": {
-        "revision": "09232c71536283031aba79f011ef3ddef1d5eb51"
+        "revision": "84535dd6d8ce8bedd2922c8688e608bb4c9d7b5c"
       }
     },
     "brew": {
@@ -316,7 +316,17 @@
       },
       "grc": {
         "version": "1.12",
-        "bottle": false
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/grc/blobs/sha256:8853ca1088ea0598d4eed82cae88748f677372487ed1794b1e0ee564d2c1b783",
+              "sha256": "8853ca1088ea0598d4eed82cae88748f677372487ed1794b1e0ee564d2c1b783"
+            }
+          }
+        }
       },
       "bat": {
         "version": "0.18.0",
@@ -610,6 +620,15 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "postico": {
+        "version": "1.5.17",
+        "options": {
+          "full_name": "postico",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     }
   },
@@ -618,7 +637,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.1.3",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "7438f6e157f8c8e5758dadc8155662e3ed531b7f",
+        "Homebrew/homebrew-core": "d517a99802b27e9c3538c540c1a0c199f3b4d72e",
         "CLT": "12.4.0.0.1.1610135815",
         "Xcode": "12.0",
         "macOS": "11.2.3"

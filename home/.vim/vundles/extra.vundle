@@ -1,13 +1,9 @@
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/ctags.vim'
-Plug 'vim-scripts/AutoTag'
 Plug 'vim-scripts/tComment'
-Plug 'scrooloose/nerdtree'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'godlygeek/tabular'
 Plug 'skwp/YankRing.vim'
-Plug 'godlygeek/csapprox'
 Plug 'jiangmiao/auto-pairs'
 
 if has('nvim')
@@ -25,3 +21,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+Plug 'kristijanhusak/defx-icons'
+Plug 'kristijanhusak/defx-git'
+Plug 'ryanoasis/vim-devicons'
+Plug 'jlanzarotta/bufexplorer'
