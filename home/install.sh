@@ -9,12 +9,15 @@ function brewInstall {
 		echo "already installed, this will do nothing."
 		echo "======================================================"
 		echo ""
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/thil/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 	fi
 }
 
 function brewRun {
 	brew bundle
+	set -U fish_user_paths /opt/homebrew/bin/ $fish_user_path
 }
 
 function plugInstall {
@@ -32,8 +35,37 @@ function plugRun {
   vim --noplugin -u .vim/bundle.vim -N \"+set hidden\" \"+syntax on\" +PlugClean +PlugInstall +qall
 }
 
+function installFisher {
+  fish
+  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+}
+
+function installFisherPlugins {
+  fish
+  fisher install pure-fish/pure
+  fisher install jethrokuan/z
+  fisher install PatrickF1/fzf.fish
+  echo -e "\nsource "(brew --prefix asdf)"/asdf.fish" >> ~/.config/fish/config.fish
+}
+
+function setUpAliases {
+  fish
+  alias vi 'nvim'
+  alias vim 'nvim'
+  alias ls 'exa'
+
+  funcsave vi
+  funcsave vim
+  funcsave exa
+}
+
 brewInstall
 brewRun
 
 plugInstall
 PlugRun
+
+installFisher
+installFisherPlugins
+
+setupAliases
