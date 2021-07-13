@@ -1,19 +1,20 @@
 - clean: ['~']
 
 - link:
-    ~/.agignore:   home/.agignore
-    ~/.aprc:       home/.aprc
-    ~/.gemrc:      home/.gemrc
-    ~/.gitconfig:  home/.gitconfig
-    ~/.gitignore:  home/.gitignore
-    ~/.gitmessage: home/.gitmessage
-    ~/.pryrc:      home/.pryrc
-    ~/.psqlrc:     home/.psqlrc
-    ~/.irbrc:      home/.irbrc
-    ~/.rspec:      home/.rspec
-    ~/.vim:        home/.vim
-    ~/.vimrc:      home/.vimrc
-    ~/.tigrc:      home/.tigrc
+    ~/.agignore:     home/.agignore
+    ~/.aprc:         home/.aprc
+    ~/.gemrc:        home/.gemrc
+    ~/.gitconfig:    home/.gitconfig
+    ~/.gitignore:    home/.gitignore
+    ~/.gitmessage:   home/.gitmessage
+    ~/.pryrc:        home/.pryrc
+    ~/.psqlrc:       home/.psqlrc
+    ~/.irbrc:        home/.irbrc
+    ~/.rspec:        home/.rspec
+    ~/.vim:          home/.vim
+    ~/.vimrc:        home/.vimrc
+    ~/.tigrc:        home/.tigrc
+    ~/.config/nvim:  home/nvim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

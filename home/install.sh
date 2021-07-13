@@ -45,7 +45,7 @@ function installFisherPlugins {
   fisher install pure-fish/pure
   fisher install jethrokuan/z
   fisher install PatrickF1/fzf.fish
-  echo -e "\nsource "(brew --prefix asdf)"/asdf.fish" >> ~/.config/fish/config.fish
+  echo -e '\nsource "(brew --prefix asdf)"/asdf.fish' >> ~/.config/fish/config.fish
 }
 
 function setUpAliases {
@@ -59,6 +59,10 @@ function setUpAliases {
   funcsave exa
 }
 
+function fasterScrollSublimeText {
+  defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false
+}
+
 brewInstall
 brewRun
 
@@ -69,3 +73,5 @@ installFisher
 installFisherPlugins
 
 setupAliases
+
+fasterScrollSbulimeText
