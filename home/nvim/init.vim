@@ -50,7 +50,7 @@ call plug#begin("~/.vim/plugged")
   " Git
   Plug 'tpope/vim-fugitive'
 
-  Plug 'skwp/vim-easymotion'
+  Plug 'phaazon/hop.nvim'
 call plug#end()
 
 " Enable theming support
@@ -205,3 +205,7 @@ nnoremap <leader>z <c-^>
 " Ag
 nmap <leader>ag :Ag <Left>
 nnoremap <leader>as :Ag! <C-r>=expand('<cword>')<CR><CR>
+
+" Hop
+nmap <Leader><Leader>w :HopWord<CR>
+nmap <Leader><Leader>c :HopChar1<CR>
