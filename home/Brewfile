@@ -4,10 +4,21 @@ cask_args appdir: '/Applications'
 tap 'thoughtbot/formulae'
 tap 'homebrew/cask-fonts'
 
+# Casks
+cask 'google-chrome'
+cask 'iterm2'
+cask 'clipy'
+cask 'rectangle'
+cask 'font-hack-nerd-font'
+cask 'postico'
+cask 'font-fira-code'
+cask 'sublime-text'
+
 # Packages
 
 ## Shell
 brew 'fish'
+bew 'fig'
 
 ## Git
 brew 'git'
@@ -23,22 +34,8 @@ brew 'fzf'
 brew 'fd'
 brew 'grc'
 brew 'bat'
-brew 'neovim'
 brew 'coreutils'
 brew 'asdf'
 brew 'exa'
 brew 'ag'
 
-## Languages
-# brew 'chruby'
-# brew 'ruby-install'
-
-# Casks
-cask 'google-chrome'
-cask 'iterm2'
-cask 'clipy'
-cask 'rectangle'
-cask 'font-hack-nerd-font'
-cask 'postico'
-cask 'font-fira-code'
-cask 'sublime-text'
