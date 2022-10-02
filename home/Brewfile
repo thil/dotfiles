@@ -13,6 +13,7 @@ cask 'font-hack-nerd-font'
 cask 'postico'
 cask 'font-fira-code'
 cask 'sublime-text'
+cask 'raycast'
 
 # Packages
 
