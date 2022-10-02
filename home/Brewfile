@@ -14,6 +14,7 @@ cask 'postico'
 cask 'font-fira-code'
 cask 'sublime-text'
 cask 'raycast'
+cask 'visual-studio-code'
 
 # Packages
 
