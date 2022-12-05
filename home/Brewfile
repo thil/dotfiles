@@ -18,6 +18,9 @@ cask 'visual-studio-code'
 
 # Packages
 
+## Productivity
+brew 'raycast'
+
 ## Shell
 brew 'zsh'
 brew 'fig'
