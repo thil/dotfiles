@@ -62,4 +62,4 @@ plugRun
 
 installPrezto
 
-fasterScrollSbulimeText
+fasterScrollSublimeText
