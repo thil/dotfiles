@@ -23,7 +23,7 @@
   default = simple
 [core]
   autocrlf = false
-	editor = nvim
+  editor = vim
   excludesfile = ~/.gitignore
 [advice]
   statusHints = false

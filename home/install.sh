@@ -18,7 +18,6 @@ function brewInstall {
 
 function brewRun {
   brew bundle
-  set -U fish_user_paths /opt/homebrew/bin/ $fish_user_path
 }
 
 function plugInstall {
@@ -40,11 +39,13 @@ function installPrezto {
   zsh
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   
-  setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  done
-  
+  ln -sf ~/.zprezto/runcoms/zlogin ~/.zlogin
+  ln -sf ~/.zprezto/runcoms/zlogout ~/.zlogout
+  ln -sf ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+  ln -sf ~/.zprezto/runcoms/zprofile ~/.zprofile
+  ln -sf ~/.zprezto/runcoms/zshenv ~/.zshenv
+  ln -sf ~/.zprezto/runcoms/zshrc ~/.zshrc
+
   chsh -s /bin/zsh
 }
 
@@ -57,7 +58,7 @@ brewInstall
 brewRun
 
 plugInstall
-PlugRun
+plugRun
 
 installPrezto
 

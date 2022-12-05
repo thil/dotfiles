@@ -14,7 +14,6 @@
     ~/.vim:          home/.vim
     ~/.vimrc:        home/.vimrc
     ~/.tigrc:        home/.tigrc
-    ~/.config/nvim:  home/nvim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

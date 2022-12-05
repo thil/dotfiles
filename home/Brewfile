@@ -20,7 +20,7 @@ cask 'visual-studio-code'
 
 ## Shell
 brew 'zsh'
-bew 'fig'
+brew 'fig'
 
 ## Git
 brew 'git'
