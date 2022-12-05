@@ -49,6 +49,25 @@ function installPrezto {
   chsh -s /bin/zsh
 }
 
+function setupVim {
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  vim --noplugin -u .vim/bundle.vim -N \"+set hidden\" \"+syntax on\" +PlugClean +PlugInstall +qall
+  
+  ln -sf ~/.vim ~/.vim
+  ln -sf ~/.vimrc ~/.vimrc
+
+}
+
+function setupForDev {
+  ln -sf ~/.irbrc ~/.irbrc
+  ln -sf ~/.gemrc ~/.gemrc
+  ln -sf ~/.pryrc ~/.pryrc
+  ln -sf ~/.tigrc ~/.tigrc
+  ln -sf ~/.rspec ~/.rspec
+  ln -sf ~/.gitmessage ~/.gitmessage
+  ln -sf ~/.gitignore ~/.gitignore
+  ln -sf ~/.gitconfig ~/.gitconfig
+}
 
 function fasterScrollSublimeText {
   defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false
@@ -61,5 +80,8 @@ plugInstall
 plugRun
 
 installPrezto
+
+setupVim
+setupForDev
 
 fasterScrollSublimeText
