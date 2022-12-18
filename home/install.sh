@@ -59,14 +59,14 @@ function setupVim {
 }
 
 function setupForDev {
-  ln -sf ~/.irbrc ~/.irbrc
-  ln -sf ~/.gemrc ~/.gemrc
-  ln -sf ~/.pryrc ~/.pryrc
-  ln -sf ~/.tigrc ~/.tigrc
-  ln -sf ~/.rspec ~/.rspec
-  ln -sf ~/.gitmessage ~/.gitmessage
-  ln -sf ~/.gitignore ~/.gitignore
-  ln -sf ~/.gitconfig ~/.gitconfig
+  ln -sf .irbrc ~/.irbrc
+  ln -sf .gemrc ~/.gemrc
+  ln -sf .pryrc ~/.pryrc
+  ln -sf .tigrc ~/.tigrc
+  ln -sf .rspec ~/.rspec
+  ln -sf .gitmessage ~/.gitmessage
+  ln -sf .gitignore ~/.gitignore
+  ln -sf .gitconfig ~/.gitconfig
 }
 
 function fasterScrollSublimeText {
@@ -77,11 +77,11 @@ brewInstall
 brewRun
 
 plugInstall
-plugRun
 
 installPrezto
 
 setupVim
+plugRun
 setupForDev
 
 fasterScrollSublimeText

@@ -1,3 +1,4 @@
 Plug 'itchyny/lightline.vim'
 Plug 'elzr/vim-json'
 Plug 'altercation/vim-colors-solarized'
+Plug 'sainnhe/everforest'
