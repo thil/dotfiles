@@ -19,6 +19,7 @@ set autoread                    "Reload files changed outside vim
 set ruler                       "Show cursor positions
 set hlsearch                    "Highlight search
 set incsearch                   "Incremental search
+set encoding=UTF-8
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -78,14 +79,15 @@ autocmd BufWritePre * %s/\s\+$//e
 " DevIcons
 "-------------------------------------------------------------------------------
 
-set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
+" set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
+set guifont=Fira\ Code:h11
 let g:webdevicons_enable_vimfiler = 1
 
 "-------------------------------------------------------------------------------
 " Color scheme
 "-------------------------------------------------------------------------------
 
-colorscheme solarized
+colorscheme everforest
 
 " ================ Completion =======================
 

@@ -1,11 +1,11 @@
 Plug 'tpope/vim-rails'
 Plug 'thoughtbot/vim-rspec'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'vim-ruby/vim-ruby'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',

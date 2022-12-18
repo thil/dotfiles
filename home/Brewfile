@@ -7,8 +7,6 @@ tap 'homebrew/cask-fonts'
 # Casks
 cask 'google-chrome'
 cask 'iterm2'
-cask 'clipy'
-cask 'rectangle'
 cask 'font-hack-nerd-font'
 cask 'postico'
 cask 'font-fira-code'
@@ -17,9 +15,6 @@ cask 'raycast'
 cask 'visual-studio-code'
 
 # Packages
-
-## Productivity
-brew 'raycast'
 
 ## Shell
 brew 'zsh'
@@ -37,7 +32,6 @@ brew 'openssl'
 brew 'libyaml'
 brew 'fzf'
 brew 'fd'
-brew 'grc'
 brew 'bat'
 brew 'coreutils'
 brew 'asdf'

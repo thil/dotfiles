@@ -1,3 +1,6 @@
 Plug 'rking/ag.vim'
 Plug 'vim-scripts/IndexedSearch'
 Plug 'skwp/vim-easymotion'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
